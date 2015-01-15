@@ -1,0 +1,31 @@
+extends ../layouts/dashboard
+
+block main
+  header.header.black-bg
+    .sidebar-toggle-box
+      .fa.fa-bars.tooltips(data-placement='right', data-original-title='Toggle Navigation')
+    a.logo(href='/dashboard')
+      b NUMA
+    #top_menu.nav.notify-row
+      // notification start
+      ul.nav.top-menu
+    .top-menu
+      ul.nav.pull-right.top-menu
+        li
+          a.logout(href='/logout') Logout
+  include ../includes/nav
+  mixin nav('/friend')  
+  section#main-content
+    section.wrapper
+     .row.mt
+       .col-md-12
+         .form-panel
+           h4.mb
+             | Invite New Friend
+           form.form-horizontal.style-form(method='get')
+            .form-group
+              label.col-sm-2.col-sm-2.control-label Email Address
+              .col-sm-10
+                 input.form-control(type='email', required= 'true')
+                 span.help-block Enter valid email address of friend to invite to join.
+            button.btn.btn-primary(type='submit') Invite	

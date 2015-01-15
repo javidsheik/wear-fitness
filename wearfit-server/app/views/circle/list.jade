@@ -1,0 +1,54 @@
+extends ../layouts/dashboard
+  
+block main
+  include ../includes/module 
+  mixin module('circle')
+
+  header.header.black-bg
+    .sidebar-toggle-box
+      .fa.fa-bars.tooltips(data-placement='right', data-original-title='Toggle Navigation')
+    a.logo(href='/dashboard')
+      b NUMA
+    #top_menu.nav.notify-row
+      // notification start
+      ul.nav.top-menu
+    .top-menu
+      ul.nav.pull-right.top-menu
+        li
+          a.logout(href='/logout') Logout
+  include ../includes/nav
+  mixin nav('/circle')  
+  section#main-content
+    section.wrapper
+     .row.mt
+       .col-md-12
+         .content-panel
+           h4
+            | My Circles
+            br
+            br            
+           hr
+           
+           table#circleList.table.table-striped.table-advance.table-hover
+            thead
+              tr
+                th  
+                th Name
+                th Description     
+                th # of Friends
+            tbody(data-bind="foreach: circles")
+              tr#trTemplate
+                  td(class="details-control")
+                     span(class="details-control")
+                  td
+                    span(data-bind='text: circle.name') 
+                    //a(data-bind='attr: { href: circle.computedURL }, html: circle.name')
+                  td
+                    span(data-bind='text: circle.description')
+                  td
+                    span(data-bind='text: friendsTotal')
+                    
+                    
+                  
+    // /content-panel
+    // /col-md-12

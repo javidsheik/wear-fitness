@@ -1,0 +1,22 @@
+extends ../layouts/default
+
+block form
+ #login-page
+ .container
+  .form-login
+    include ../includes/messages
+
+    form.form-login(action="/signup", method="post", role="form")
+     h2.form-login-heading Sign Up
+      input(type='hidden', name='_csrf', value=_csrf)
+      p.col-sm-offset-2.error= message      
+        .loginwrap
+          input.form-control.no-border(type='email', name="email", placeholder='Email')        
+      //.checkbox.m-b
+        label
+          input(type='checkbox') | Agree the a(href='#') terms and policy
+      button.btn.btn-lg.btn-primary.btn-block(type='submit') Send Invitation
+      .line.line-dashed
+      p.text-muted.text-center
+        small Already have an account?
+      a.btn.btn-lg.btn-default.btn-block(href='/login') Sign in

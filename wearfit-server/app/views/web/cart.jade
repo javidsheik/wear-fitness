@@ -1,0 +1,244 @@
+extends ../layouts/web
+  
+block main
+    .header
+      link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800', rel='stylesheet', type='text/css')
+      link(rel='stylesheet', href='/css/web/styles/style.css')   
+      link(rel='stylesheet', href='/css/web/styles/owl.carousel.css')  
+      link(rel='stylesheet', href='/css/web/styles/etalage.css')
+      .top-header
+        .wrap
+          .top-header-left
+            ul
+              // -cart-tonggle-script--
+              script(type='text/javascript').
+                $(function(){
+                $("#review_submit").click(function(e)
+                {
+                var capture_review_comment = $("#capture_review_comment").val();
+                var capture_review_rating = $("#capture_review_rating").val();
+                console.log(capture_review_comment);
+                $.ajax(
+                {
+                url : '/api/capture_review',
+                type: "POST",
+                data : {'comment': capture_review_comment,'rating' : capture_review_rating},
+                success:function(data, textStatus, jqXHR)
+                {
+                alert(data.data.message);
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                 alert(data.data.message);     
+                }
+                });
+                e.preventDefault();
+                });
+                var $cart = $('#cart');
+                $('#clickme').click(function(e) {
+                e.stopPropagation();
+                if ($cart.is(":hidden")) {
+                $cart.slideDown("slow");
+                } else {
+                $cart.slideUp("slow");
+                }
+                });
+                $(document.body).click(function () {
+                if ($cart.not(":hidden")) {
+                $cart.slideUp("slow");
+                }
+                });
+                });
+              // -start-cart-bag--
+              li
+                a.info(href='#')
+                  span  
+          .top-header-center
+            .top-header-center-alert-left
+              h3 FREE SHIPPING 
+            .top-header-center-alert-right
+              .vticker
+                ul
+                  li
+                    | Applies to all orders. 
+                    label Returns are subject to conditions.
+            .clear  
+          .top-header-right
+          .clear  
+      // --start-mid-head--
+      .mid-header
+      // --//End-mid-head--
+      // --start-bottom-header--
+      // -//End-header--
+      // - start-content--
+      .content.details-page
+        // -start-product-details-
+        .product-details
+          .wrap
+            ul.product-head
+              li
+                a(href='/') Home
+              .clear  
+            // --details-product-slider-
+            // Include the Etalage files     
+            
+            script(src='js/web/scripts/jquery.easy-ticker.js')
+            script(src='js/web/scripts/megamenu.js')
+            script(src='js/web/scripts/jquery.etalage.min.js')
+            script(src='js/web/scripts/easyResponsiveTabs.js')
+            
+            // Include the Etalage files
+            script.
+              jQuery(document).ready(function($){
+              $(document).ready(function(){$(".megamenu").megamenu();});
+              $('#etalage').etalage({
+              thumb_image_width: 300,
+              thumb_image_height: 400,
+              source_image_width: 900,
+              source_image_height: 1000,
+              show_hint: true,
+              click_callback: function(image_anchor, instance_id){
+              alert('Callback example:\\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+              }
+              });
+              // This is for the dropdown list example:
+              $('.dropdownlist').change(function(){
+              etalage_show( $(this).find('option:selected').attr('class') );
+              });
+              });
+            // --//details-product-slider-
+            .details-left
+              .details-left-slider
+                ul#etalage
+                  li
+                    a(href='optionallink.html')
+                      img.etalage_thumb_image(src='css/web/img/product-slide/image1_thumb.jpg')
+                      img.etalage_source_image(src='css/web/img/product-slide/image1_large.jpg')
+                  li
+                    img.etalage_thumb_image(src='css/web/img/product-slide/image2_thumb.jpg')
+                    img.etalage_source_image(src='css/web/img/product-slide/image2_large.jpg')
+                  li
+                    img.etalage_thumb_image(src='css/web/img/product-slide/image3_thumb.jpg')
+                    img.etalage_source_image(src='css/web/img/product-slide/image3_large.jpg')
+                  li
+                    img.etalage_thumb_image(src='css/web/img/product-slide/image4_thumb.jpg')
+                    img.etalage_source_image(src='css/web/img/product-slide/image4_large.jpg')
+              .details-left-info
+                .details-right-head
+                  h1 Numa Sprint
+                  p.product-detail-info
+                    | Product Features : Pedometer with steps,sleep,distance and calories. 
+                  a.learn-more(href='#')
+                    h3 MORE DETAILS
+                  .product-more-details
+                    form(name='cartForm', novalidate='',method='post',action='/cart')
+                        input(type='hidden', name='_csrf', value=_csrf)
+                        ul.price-avl
+                          li.price
+                            span INR 3999
+                            label INR 2999
+                          li.stock
+                            i In stock
+                          .clear  
+                        ul.product-colors
+                          h3 select Color :: 
+                             input(id="order_color", name='order_color', readonly=true, value="black",style="border:none")
+                          li
+                            a.color1(name="white",href='#', onclick="document.getElementById('order_color').value='white'; return false;")
+                              span  
+                          li
+                            a.color6(name="black",href='#', onclick="document.getElementById('order_color').value='black';return false;")
+                              span  
+                          li
+                            a.color5(name="orange",href='#', onclick="document.getElementById('order_color').value='orange';return false;")
+                              span  
+                          .clear  
+                        ul.prosuct-qty
+                          span Quantity:
+                          select(name="order_quantity")
+                            option 1
+                            option 2
+                            option 3
+                            option 4
+                            option 5
+                            option 6
+                        input#cart_submit(type='submit', value='checkout')
+                        ul.product-share
+                          h3 Share
+                          ul
+                            li
+                              a.share-face(href='https://www.facebook.com/sharer/sharer.php?u=/cart')
+                                span  
+                            li
+                              a.share-twitter(href='https://twitter.com/home?status=/cart')
+                                span  
+                            li
+                              a.share-google(href='https://plus.google.com/share?url=/cart')
+                                span  
+                            
+                            .clear  
+              .clear  
+            .clear  
+          // --product-rewies--
+          .product-reviwes
+            .wrap
+              // vertical Tabs-script
+              // -responsive-tabs--
+              script(type='text/javascript').
+                $(document).ready(function () {
+                $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion
+                width: 'auto', //auto or any width like 600px
+                fit: true,   // 100% fit in a container
+                closed: 'accordion', // Start closed if in accordion view
+                activate: function(event) { // Callback function if tab is switched
+                var $tab = $(this);
+                var $info = $('#tabInfo');
+                var $name = $('span', $info);
+                $name.text($tab.text());
+                $info.show();
+                }
+                });
+                $('#verticalTab').easyResponsiveTabs({
+                type: 'vertical',
+                width: 'auto',
+                fit: true
+                });
+                });
+              // -//responsive-tabs--
+              // //vertical Tabs-script
+              // vertical Tabs
+              #verticalTab
+                ul.resp-tabs-list
+                  li Description
+                  li Product reviews
+                .resp-tabs-container.vertical-tabs
+                  div
+                    h3  Details
+                    p
+                      | Pedometer with steps,distance,sleep and calories measurement.
+                    p
+                      | Bluetooth 4.0 , Sleep Monitoring, Alarm Setting, Find your band features will set vibration to help find the band.
+                  div
+                    h3 Product Reviews
+                      ul.pro-rate
+                        li
+                          a.product-rate(href='#')
+                            label  
+                    h4 Add Your Review:
+                    form(name='reviewForm', novalidate='',method='post',action='')
+                      input#capture_review_csrf(type='hidden', name='_csrf', value=_csrf)
+                      input#capture_review_comment(type='text',name='comment')
+                      input#capture_review_rating(type='hidden',name='rating' ,value="3")
+                      br
+                      br
+                      input#review_submit(type='submit', value='ADD REVIEW')
+                      span Use spaces to separate tags. Use single quotes (') for phrases.
+                      br
+                      div#reviews_list
+              .clear  
+          .clear  
+          // //vertical Tabs
+          // --//product-rewies--
+          // -//End-product-details-
+          

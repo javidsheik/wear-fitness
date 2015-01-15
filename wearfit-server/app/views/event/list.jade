@@ -1,0 +1,60 @@
+extends ../layouts/dashboard
+
+block main
+  header.header.black-bg
+    .sidebar-toggle-box
+      .fa.fa-bars.tooltips(data-placement='right', data-original-title='Toggle Navigation')
+    a.logo(href='/dashboard')
+      b EXPRESS
+    #top_menu.nav.notify-row
+      // notification start
+      ul.nav.top-menu
+    .top-menu
+      ul.nav.pull-right.top-menu
+        li
+          a.logout(href='/logout') Logout
+  include ../includes/nav
+  mixin nav('/event')  
+  section#main-content
+    section.wrapper
+     .row.mt
+       .col-md-12
+         .content-panel
+           h4
+            | My Events
+            br
+            br
+            a.btn.btn-theme(href='/event/create') New Event
+           hr           
+           table.table.table-striped.table-advance.table-hover
+            thead
+              tr
+                th
+                  i.fa.fa-bullhorn
+                  | Name
+                th.hidden-phone
+                  i.fa.fa-question-circle
+                  | Description
+                th
+                  i.fa.fa-bookmark
+                  | Tags
+                th
+                  i.fa.fa-edit
+                  | Status
+                th
+            tbody
+              tr
+                td
+                  a(href='') Default
+                td.hidden-phone Default Description
+                td Default 
+                td
+                  span.label.label-info.label-mini Active
+                td
+                  button.btn.btn-primary.btn-xs
+                    i.fa.fa-pencil
+                  button.btn.btn-danger.btn-xs
+                    i.fa.fa-trash-o          
+    // /content-panel
+  // /col-md-12
+

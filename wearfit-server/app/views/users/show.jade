@@ -1,0 +1,80 @@
+extends ../layouts/dashboard
+
+block main
+  include ../includes/module 
+  mixin module('dashboard')
+  header.header.black-bg
+    .sidebar-toggle-box
+      .fa.fa-bars.tooltips(data-placement='right', data-original-title='Toggle Navigation')
+    a.logo(href='/dashboard')
+      b NUMA
+    #top_menu.nav.notify-row
+      // notification start
+      ul.nav.top-menu
+    .top-menu
+      ul.nav.pull-right.top-menu
+        li
+          a.logout(href='/logout') Logout
+  include ../includes/nav
+  mixin nav('/dashboard')  
+  section#main-content
+    section.wrapper
+      .row
+        .col-lg-9.main-chart
+             .row.mt#agg_data
+              .col-md-4.col-sm-4.mb
+                .white-panel.pn
+                  .white-header
+                    h5 STEPS
+                  .row
+                    .col-sm-6.col-xs-6.goleft
+                      p
+                        i.fa.fa-heart
+                        span(data-bind="text: agg_steps")
+                    .col-sm-6.col-xs-6
+                  .centered                    
+              .col-md-4.col-sm-4.mb
+                .white-panel.pn
+                  .white-header
+                    h5 DISTANCE
+                  .row
+                    .col-sm-6.col-xs-6.goleft
+                      p
+                        i.fa.fa-bar-chart-o
+                        span(data-bind="text: agg_distance")
+                    .col-sm-6.col-xs-6
+                  .centered                    
+              // /col-md-4
+              .col-md-4.col-sm-4.mb
+                .white-panel.pn.donut-chart
+                  .white-header
+                     h5 CALORIES
+                  .row
+                    .col-sm-6.col-xs-6.goleft
+                      p
+                        i.fa.fa-fire
+                        span(data-bind="text: agg_calories")
+                   canvas#activitycalories(width='120', height='120')
+             .row.mt
+              .col-md-12.col-sm-12.mb
+                 div#activity_chart 
+        .col-lg-3.ds
+          h3 NOTIFICATIONS         
+            // /col-lg-3
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+  // main content end

@@ -1,0 +1,117 @@
+extends ../layouts/default
+
+block form
+ #login-page
+ .container
+  .form-login
+    include ../includes/messages
+
+    form.form-login(action="/invite/#{req.params.token}", method="post", role="form")
+     h2.form-login-heading Create your Profile
+      input(type='hidden', name='_csrf', value=_csrf)
+      p.col-sm-offset-2.error= message      
+        .loginwrap
+           br
+           input.form-control.no-border(type='text', name="first_name", required="true" , placeholder='First Name')        
+           br
+           input.form-control.no-border(type='text', name="last_name", required="true" ,  placeholder='Last Name')        
+           br
+           input.form-control.no-border(type='password', name="password", required="true" , placeholder='Password')        
+           br
+           input.form-control.no-border(type='password', name="confirm_password", required="true" , placeholder='Confirm Password')        
+           br
+           label
+            input#gender(type='radio', name='gender', value='Male', checked='')
+            | Male &nbsp;          
+           label
+            input#gender(type='radio', name='gender', value='Female')
+            | Female           
+           br          
+           select#city(name='city', style='width:283px;')
+             option(label='Select City', value='', selected='selected') Select City
+             option(label='Agartala', value='Agartala') Agartala
+             option(label='Agra', value='Agra') Agra
+             option(label='Ahmedabad', value='Ahmedabad') Ahmedabad
+             option(label='Aizwal', value='Aizwal') Aizwal
+             option(label='Aligarh', value='Aligarh') Aligarh
+             option(label='Allahabad', value='Allahabad') Allahabad
+             option(label='Amritsar', value='Amritsar') Amritsar
+             option(label='Aurangabad', value='Aurangabad') Aurangabad
+             option(label='Baroda', value='Baroda') Baroda
+             option(label='Bengaluru', value='Bengaluru') Bengaluru
+             option(label='Bhopal', value='Bhopal') Bhopal
+             option(label='Bhubaneshwar', value='Bhubaneshwar') Bhubaneshwar
+             option(label='Bokaro', value='Bokaro') Bokaro
+             option(label='Chandigarh', value='Chandigarh') Chandigarh
+             option(label='Chennai', value='Chennai') Chennai
+             option(label='Cochin', value='Cochin') Cochin
+             option(label='Coimbatore', value='Coimbatore') Coimbatore
+             option(label='Cuttack', value='Cuttack') Cuttack
+             option(label='Dehradun', value='Dehradun') Dehradun
+             option(label='Delhi', value='Delhi') Delhi
+             option(label='Dimapur', value='Dimapur') Dimapur
+             option(label='Durgapur', value='Durgapur') Durgapur
+             option(label='Faridabad', value='Faridabad') Faridabad
+             option(label='Gandhinagar', value='Gandhinagar') Gandhinagar
+             option(label='Ghaziabad', value='Ghaziabad') Ghaziabad
+             option(label='Goa', value='Goa') Goa
+             option(label='Gurgaon', value='Gurgaon') Gurgaon
+             option(label='Guwahati', value='Guwahati') Guwahati
+             option(label='Gwalior', value='Gwalior') Gwalior
+             option(label='Hyderabad', value='Hyderabad') Hyderabad
+             option(label='Imphal', value='Imphal') Imphal
+             option(label='Indore', value='Indore') Indore
+             option(label='Jabalpur', value='Jabalpur') Jabalpur
+             option(label='Jaipur', value='Jaipur') Jaipur
+             option(label='Jammu', value='Jammu') Jammu
+             option(label='Jamnagar', value='Jamnagar') Jamnagar
+             option(label='Jamshedpur', value='Jamshedpur') Jamshedpur
+             option(label='Jodhpur', value='Jodhpur') Jodhpur
+             option(label='Jullundhar', value='Jullundhar') Jullundhar
+             option(label='Kanpur', value='Kanpur') Kanpur
+             option(label='Kolhapur', value='Kolhapur') Kolhapur
+             option(label='Kolkata', value='Kolkata') Kolkata
+             option(label='Lucknow', value='Lucknow') Lucknow
+             option(label='Ludhiana', value='Ludhiana') Ludhiana
+             option(label='Madurai', value='Madurai') Madurai
+             option(label='Mangalore', value='Mangalore') Mangalore
+             option(label='Margaon', value='Margaon') Margaon
+             option(label='Mumbai', value='Mumbai') Mumbai
+             option(label='Mysore', value='Mysore') Mysore
+             option(label='Nagpur', value='Nagpur') Nagpur
+             option(label='Nasik', value='Nasik') Nasik
+             option(label='NOIDA', value='NOIDA') NOIDA
+             option(label='Patna', value='Patna') Patna
+             option(label='Panjim', value='Panjim') Panjim
+             option(label='Pondicherry', value='Pondicherry') Pondicherry
+             option(label='Pune', value='Pune') Pune
+             option(label='Raipur', value='Raipur') Raipur
+             option(label='Ranchi', value='Ranchi') Ranchi
+             option(label='Rourkela', value='Rourkela') Rourkela
+             option(label='Rajkot', value='Rajkot') Rajkot
+             option(label='Salem', value='Salem') Salem
+             option(label='Secunderabad', value='Secunderabad') Secunderabad
+             option(label='Shillong', value='Shillong') Shillong
+             option(label='Siliguri', value='Siliguri') Siliguri
+             option(label='Srinagar', value='Srinagar') Srinagar
+             option(label='Surat', value='Surat') Surat
+             option(label='Thane', value='Thane') Thane
+             option(label='Thiruvananthapuram', value='Thiruvananthapuram') Thiruvananthapuram
+             option(label='Tiruchirapalli', value='Tiruchirapalli') Tiruchirapalli
+             option(label='Udaipur', value='Udaipur') Udaipur
+             option(label='Varanasi', value='Varanasi') Varanasi
+             option(label='Vellore', value='Vellore') Vellore
+             option(label='Vijaywada', value='Vijaywada') Vijaywada
+             option(label='Vishakapatnam', value='Vishakapatnam') Vishakapatnam
+             option(label='Other', value='Other') Other
+           br
+           br
+           input.form-control.no-border(type='text', name="country", value ="India" placeholder='Country')  
+           br                        
+           input.form-control.no-border(type='text', name="org", value ="" placeholder='Organization')  
+           br                        
+           input(type='checkbox')
+           | Agree the terms and policy
+      button.btn.btn-lg.btn-primary.btn-block(type='submit') Save
+      .line.line-dashed
+      

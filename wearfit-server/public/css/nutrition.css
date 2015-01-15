@@ -1,0 +1,111 @@
+#showFood .modal-body, #editFood .modal-body {
+    max-height: 600px;
+}
+
+/* http://www.fsis.usda.gov/pdf/nutrition_panel_format.pdf */
+/* (All pt sizes are converted to px by multiplying by 1.75) */
+/* 8pt Helvetica Regular with 4 points of leading */
+.nutrition-facts {
+    border: 1px solid black; 
+    width: 300px; 
+    padding: 3px; 
+    font-size: 14px; 
+    font-family: Oswald,Helvetica Regular, Helvetica, sans-serif;
+}
+
+/* Franklin Gothic Heavy or Helvetica Black, flush left & flush right, no smaller than 13pt */
+.nutrition-facts h1 {
+    font-size: 37px; 
+    letter-spacing: 1px; 
+    line-height: 100%; 
+    font-family: "Oswald","Franklin Gothic Heavy", "Helvetica Black", sans-serif;
+    margin: 0;
+}
+
+/* 3pt rule */
+.nutrition-facts hr {
+    height: 5.25px; 
+    background-color: black;
+    border: none;
+    margin: 0;
+}  
+
+/* 7pt rule */
+.nutrition-facts hr.thick {
+    height: 12.25px;
+}
+
+/* All labels enclosed by 1/2 point box rule within 3 points of text measure */
+/* 1/4pt rule centered between nutrients (2pts leading above and 2pts below */
+.nutrition-facts p, .nutrition-facts .nutrient {
+    border-top: 1px solid black;
+    margin: 0;
+    clear: both;
+    padding: 2px 0;
+}
+
+/* 6pt Helvetica black */
+.nutrition-facts h2 {
+    font-size: 10.5px;
+    margin: 0;
+    padding: 0;
+    line-height: 150%;
+    font-family: Helvetica Black, Helvetica, sans-serif;
+}
+
+/* Type below vitamins and minerals (footnotes) is 6pt with 1pt of leading */
+.nutrition-facts footer {
+    font-size: 10.5px;
+    line-height: 13px;
+}
+
+/* Helvetica regular 8pt with 1pt of leading */
+.nutrition-facts .servings {
+}
+
+/* 8pt Helvetica Black with 4 pts of leading */
+.nutrition-facts strong {
+    font-family: Oswald , Helvetica Black, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.nutrition-facts .subnutrient {
+    padding-left: 15px;
+}
+
+/* 8pt Helvetica Regular, 4pt of leading with 10pt bullets */
+.nutrition-facts .vitamins {
+}
+
+.nutrition-facts .right {
+    float: right;
+}
+
+.nutrition-facts .left {
+    float: left;
+}
+
+.nutrition-facts .clear {
+    clear: both;
+}        
+.nutrition-facts .input-mini {
+    height: 20px;
+    width: 40px;
+    padding: 0 4px;
+    margin: 0;
+    border-radius: 2px;
+    line-height: 16px;
+    position: relative;
+    top: -1px;
+}
+.nutrition-facts .btn {
+    height: 18px;
+    padding: 0 4px;
+    line-height: 16px;
+    position: relative;
+    top: -1px;
+}
+.nutrition-facts .input-append {
+    margin: 0;
+    line-height: 18px;
+}

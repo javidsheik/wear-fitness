@@ -1,0 +1,17 @@
+<%- include ../include/header %>
+
+  <h3> Hello <%= email %>!</h3>
+
+  <h5> Welcome to Numa Digital Fitness </h5> <br/><br/>
+  
+  If this is not intended, chances are someone else tried to log in as you. No need to panic. Simply ignore this email and nothing will happen.</p>
+
+  <p style="text-align:center;margin-bottom:0.5rem; width:300px">
+    <a href="<%= url_invitation %>" style="text-decoration:none;display:block;padding:16px;background:#e06666;font-weight:bold;font-size:16px;color:white" target="_blank">Click here to accept invitation</a>
+  </p>
+  <p>or paste this into your browser to complete the process</p>
+
+  <p><%= url_invitation %></p>
+  
+
+<%- include ../include/footer %>

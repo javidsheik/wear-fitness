@@ -1,0 +1,405 @@
+extends layouts/web
+
+block main
+    nav.navbar.navbar-default.navbar-fixed-top
+      .container
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header.page-scroll
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand.page-scroll(href='#page-top')
+            img(src='css/web/img/portfolio/logo2.png')
+            | Numa Digital Fitness
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li.hidden
+              a(href='#page-top')
+            li
+              a.page-scroll(href='#services') Services
+            li
+              a.page-scroll(href='#portfolio') Features
+            li
+              a.page-scroll(href='#team') Board
+            li
+              a.page-scroll(href='#download') Download
+            li
+              a.page-scroll(href='/login') Login
+            li
+              a.page-scroll(href='#contact') Contact
+            li
+              a.page-scroll(href='/cart') Buy   
+        // /.navbar-collapse
+      // /.container-fluid
+    // Header
+    #myCarousel.carousel.slide
+      // Menu
+      ol.carousel-indicators
+        li.active(data-target='#myCarousel', data-slide-to='0')
+        li(data-target='#myCarousel', data-slide-to='1')
+        li(data-target='#myCarousel', data-slide-to='2')
+        li(data-target='#myCarousel', data-slide-to='3')
+      // Items
+      .carousel-inner
+        .item.active
+          img(src='css/web/img/0.jpg')
+          .container
+            .carousel-caption
+              p.lead Experience the world of Digital fitness
+              h1 Log Your Runs,Track your Progress, Compete with your Friends
+              p
+                a.page-scroll.btn.btn-xl(href='/cart', target='_blank') Buy Now      
+        // Item 1
+        .item
+          img(src='css/web/img/01.jpg')
+          .container
+            .carousel-caption
+              p.lead Experience the world of Digital fitness
+              h1 Get your Numa Sprint today
+              p
+                a.page-scroll.btn.btn-xl(href='/cart', target='_blank') Buy Now
+        // Item 2
+        .item
+          img(src='css/web/img/02.jpg')
+          .container
+            .carousel-caption
+              p.lead Numa app available for both android and ios
+              h1 Experience rich app with digital fitness features
+              p
+        // Item 3
+        .item
+          img(src='css/web/img/03.jpg')
+          .container
+            .carousel-caption
+              p.lead Numa sprint in stock now
+              h1 Grab your band today
+              p
+                a.page-scroll.btn.btn-xl(href='/cart', target='_blank') Buy Now
+      // Controls
+      a.left.carousel-control(href='#myCarousel', data-slide='prev')
+        span.icon-prev
+      a.right.carousel-control(href='#myCarousel', data-slide='next')
+        span.icon-next
+    // Services Section
+    section#services
+      .container
+        .row
+          .col-lg-12.text-center
+            h2.section-heading Services
+            h3.section-subheading.text-muted We are with you on you digital fitness journey.
+        .row.text-center
+          .col-md-4
+            span.fa-stack.fa-4x
+              i.fa.fa-circle.fa-stack-2x.text-primary
+              i.fa.fa-shopping-cart.fa-stack-1x.fa-inverse
+            h4.service-heading Free Shipping 
+            p.text-muted We do free shipping for all bands
+          .col-md-4
+            span.fa-stack.fa-4x
+              i.fa.fa-circle.fa-stack-2x.text-primary
+              i.fa.fa-laptop.fa-stack-1x.fa-inverse
+            h4.service-heading Easy Refunds
+            p.text-muted
+              | We have a good refund policy for faulty bands. Bring the defect to our notice and we take it from there.
+          .col-md-4
+            span.fa-stack.fa-4x
+              i.fa.fa-circle.fa-stack-2x.text-primary
+              i.fa.fa-lock.fa-stack-1x.fa-inverse
+            h4.service-heading Service
+            p.text-muted We provide exceptional service for faulty or defective bands.
+    // Portfolio Grid Section
+    section#portfolio.bg-light-gray
+      .container
+        .row
+          .col-lg-12.text-center
+            h2.section-heading FEATURES
+            h3.section-subheading.text-muted We have apps both on Android and iOS Markets.
+        .row
+          .col-md-4.col-sm-6.portfolio-item
+            a.portfolio-link(href='#portfolioModal1', data-toggle='modal')
+              .portfolio-hover
+                .portfolio-hover-content
+                  i.fa.fa-plus.fa-3x
+              img.img-responsive(src='css/web/img/portfolio/roundicons.png', alt='')
+            .portfolio-caption
+              h4 Profile
+              p.text-muted Manage your digital fitness profile. Pedometer, Steps, Distance and Calories.
+          .col-md-4.col-sm-6.portfolio-item
+            a.portfolio-link(href='#portfolioModal2', data-toggle='modal')
+              .portfolio-hover
+                .portfolio-hover-content
+                  i.fa.fa-plus.fa-3x
+              img.img-responsive(src='css/web/img/portfolio/startup-framework.png', alt='')
+            .portfolio-caption
+              h4 Track
+              p.text-muted Tracking all your Activities, Food, Water, Weight and Events participated.
+          .col-md-4.col-sm-6.portfolio-item
+            a.portfolio-link(href='#portfolioModal3', data-toggle='modal')
+              .portfolio-hover
+                .portfolio-hover-content
+                  i.fa.fa-plus.fa-3x
+              img.img-responsive(src='css/web/img/portfolio/dreams.png', alt='')
+            .portfolio-caption
+              h4 Circles and Friends
+              p.text-muted
+                | Connect instantly with your Friends, compare your fitness with your numa friends. Create Circles and share events with your friends.
+          .col-md-4.col-sm-6.portfolio-item
+            a.portfolio-link(href='#portfolioModal4', data-toggle='modal')
+              .portfolio-hover
+                .portfolio-hover-content
+                  i.fa.fa-plus.fa-3x
+              img.img-responsive(src='css/web/img/portfolio/golden.png', alt='')
+            .portfolio-caption
+              h4 Events
+              p.text-muted
+                | Create Events and share it with your circle friends. Track events and compare progress with your friends. Also participate in all happening events in your city.
+          .col-md-4.col-sm-6.portfolio-item
+            a.portfolio-link(href='#portfolioModal5', data-toggle='modal')
+              .portfolio-hover
+                .portfolio-hover-content
+                  i.fa.fa-plus.fa-3x
+              img.img-responsive(src='css/web/img/portfolio/escape.png', alt='')
+            .portfolio-caption
+              h4 Goals
+              p.text-muted Set Goals and push your self to achieve them.
+          .col-md-4.col-sm-6.portfolio-item
+            a.portfolio-link(href='#portfolioModal6', data-toggle='modal')
+              .portfolio-hover
+                .portfolio-hover-content
+                  i.fa.fa-plus.fa-3x
+              img.img-responsive(src='css/web/img/portfolio/food.png', alt='')
+            .portfolio-caption
+              h4 Food
+              p.text-muted Track your daily consumptions Food, Water
+    // Team Section
+    section#team(style='background-color: #FFFFFF')
+      .container
+        .row
+          .col-lg-12.text-center
+            h2.section-heading Board Members
+            h3.section-subheading.text-muted
+              | Our Amazing board members who constantly work with us setting strategic direction.
+        .row
+          .col-sm-4
+            .team-member
+              img.img-responsive.img-circle(src='css/web/img/team/1.jpg', alt='')
+              h4 Kay Garland
+              p.text-muted Strategist
+              ul.list-inline.social-buttons
+                li
+                  a(href='#')
+                    i.fa.fa-twitter
+                li
+                  a(href='#')
+                    i.fa.fa-facebook
+                li
+                  a(href='#')
+                    i.fa.fa-linkedin
+          .col-sm-4
+            .team-member
+              img.img-responsive.img-circle(src='css/web/img/team/1.jpg', alt='')
+              h4 Larry Parker
+              p.text-muted Strategist
+              ul.list-inline.social-buttons
+                li
+                  a(href='#')
+                    i.fa.fa-twitter
+                li
+                  a(href='#')
+                    i.fa.fa-facebook
+                li
+                  a(href='#')
+                    i.fa.fa-linkedin
+          .col-sm-4
+            .team-member
+              img.img-responsive.img-circle(src='css/web/img/team/1.jpg', alt='')
+              h4 Diana Pertersen
+              p.text-muted Fund Raiser
+              ul.list-inline.social-buttons
+                li
+                  a(href='#')
+                    i.fa.fa-twitter
+                li
+                  a(href='#')
+                    i.fa.fa-facebook
+                li
+                  a(href='#')
+                    i.fa.fa-linkedin
+        .row
+          .col-lg-8.col-lg-offset-2.text-center
+            p.large.text-muted Statement of direction from our board members.
+    // Clients Aside
+    section#download
+      .container
+        .row
+          .col-lg-12.text-center
+            h2.section-heading Download Mobile App
+            h3.section-subheading.text-muted Available on both Android and IOS. Scan the respective QR Codes.
+        .row
+          .col-sm-6
+            .team-member
+              img.img-responsive(src='release/android_qrcode.png', alt='')
+              img(src="css/web/img/android.jpg")
+              h4 Android              
+          .col-sm-6
+            .team-member
+              img.img-responsive(src='release/ios_qrcode.png', alt='')
+              img(src="css/web/img/ios.jpg")
+              h4 iOS
+    section#contact
+      .container
+        .row
+          .col-lg-12.text-center
+            h2.section-heading Contact Us
+            h3.section-subheading.text-muted Connect with us and let us know your ideas on digital fitness.
+        .row
+          .col-lg-12
+            form#contactForm(name='sentMessage', novalidate='',method='post',action='')
+              .row
+                .col-md-6
+                  .form-group
+                    input#name.form-control(name="name",type='text', placeholder='Your Name *', required='', data-validation-required-message='Please enter your name.')
+                    p.help-block.text-danger
+                  .form-group
+                    input#email.form-control(name="email",type='email', placeholder='Your Email *', required='', data-validation-required-message='Please enter your email address.')
+                    p.help-block.text-danger
+                  .form-group
+                    input#phone.form-control(name="phone",type='tel', placeholder='Your Phone *', required='', data-validation-required-message='Please enter your phone number.')
+                    p.help-block.text-danger
+                .col-md-6
+                  .form-group
+                    textarea#message.form-control(name="message",placeholder='Your Message *', required='', data-validation-required-message='Please enter a message.')
+                    p.help-block.text-danger
+                .clearfix
+                .col-lg-12.text-center
+                  #success
+                  button#capture_lead.btn.btn-xl(name='capture_lead') Send Message   
+    footer
+      .container
+        .row
+          .col-md-4
+            span.copyright Copyright Simpliot 2014
+          .col-md-4
+            ul.list-inline.social-buttons
+              li
+                a(href='facebook.com/')
+                  i.fa.fa-twitter
+              li
+                a(href='twitter.com/')
+                  i.fa.fa-facebook
+              li
+                a(href='linkedin.com/')
+                  i.fa.fa-linkedin
+          .col-md-4
+            ul.list-inline.quicklinks
+              li
+                a(href='#') Privacy Policy
+              li
+                a(href='#') Terms of Use
+    // Portfolio Modals
+    // Use the modals below to showcase details about your portfolio projects!
+    // Portfolio Modal 1
+    #portfolioModal1.portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+      .modal-content
+        .close-modal(data-dismiss='modal')
+          .lr
+            .rl
+        .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              .modal-body
+                // Project Details Go Here
+                h2 Digital Fitness Profile
+                p.item-intro.text-muted Manage your digital fitness profile. Pedometer, Steps, Distance and Calories
+                img.img-responsive(src='css/web/img/portfolio/roundicons.png', alt='')
+                p
+                p
+    #portfolioModal2.portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+      .modal-content
+        .close-modal(data-dismiss='modal')
+          .lr
+            .rl
+        .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              .modal-body
+                // Project Details Go Here
+                h2 Track Activities
+                p.item-intro.text-muted Tracking all your Activities, Food, Water, Weight and Events participated.
+                img.img-responsive(src='css/web/img/portfolio/startup-framework.png', alt='')
+                p
+                p
+    #portfolioModal3.portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+      .modal-content
+        .close-modal(data-dismiss='modal')
+          .lr
+            .rl
+        .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              .modal-body
+                // Project Details Go Here
+                h2 Circles and Friends
+                p.item-intro.text-muted
+                  | Connect instantly with your Friends, compare your fitness with your numa friends. Create Circles and share events with your friends..
+                img.img-responsive(src='css/web/img/portfolio/dreams.png', alt='')
+                p
+                p
+    #portfolioModal4.portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+      .modal-content
+        .close-modal(data-dismiss='modal')
+          .lr
+            .rl
+        .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              .modal-body
+                // Project Details Go Here
+                h2 Events
+                p.item-intro.text-muted
+                  | Create Events and share it with your circle friends. Track events and compare progress with your friends. Also participate in all happening events in your city.
+                img.img-responsive(src='css/web/img/portfolio/golden.png', alt='')
+                p
+                p
+    #portfolioModal5.portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+      .modal-content
+        .close-modal(data-dismiss='modal')
+          .lr
+            .rl
+        .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              .modal-body
+                // Project Details Go Here
+                h2 Goals
+                p.item-intro.text-muted Set Goals and push your self to achieve them
+                img.img-responsive(src='css/web/img/portfolio/escape.png', alt='')
+                p
+                p
+    #portfolioModal6.portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+      .modal-content
+        .close-modal(data-dismiss='modal')
+          .lr
+            .rl
+        .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              .modal-body
+                // Project Details Go Here
+                h2 Track Food and Water
+                p.item-intro.text-muted Track your daily food consumptions from our huge list of daily food
+                img.img-responsive(src='css/web/img/portfolio/food.png', alt='')
+                p
+                p
+    script(src='http://code.jquery.com/jquery-2.1.1.min.js', type='text/javascript')
+    script(src='/js/web/scripts/main.js')
+    script(src='js/web/scripts/easyResponsiveTabs.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js')
+    script(src='js/web/scripts/bootstrap.min.js')
+    script(src='js/web/scripts/classie.js')
+    script(src='js/web/scripts/cbpAnimatedHeader.js')
+    script(src='js/web/scripts/jqBootstrapValidation.js')
+    script(src='js/web/scripts/web.js')

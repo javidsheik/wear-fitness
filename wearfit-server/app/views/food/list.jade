@@ -1,0 +1,296 @@
+extends ../layouts/dashboard
+
+block main
+  include ../includes/module 
+  mixin module('food')
+  header.header.black-bg
+    .sidebar-toggle-box
+      .fa.fa-bars.tooltips(data-placement='right', data-original-title='Toggle Navigation')
+    a.logo(href='/dashboard')
+      b NUMA
+    #top_menu.nav.notify-row
+      // notification start
+      ul.nav.top-menu
+    .top-menu
+      ul.nav.pull-right.top-menu
+        li
+          a.logout(href='/logout') Logout
+  include ../includes/nav
+  mixin nav('/food')  
+  section#main-content
+    section.wrapper
+     .row.mt
+       .col-md-12
+         .content-panel
+           h4
+            | All Foods
+            br
+            br
+           hr           
+           form.form-horizontal
+            .form-group
+              label.col-sm-2.col-sm-2.control-label Name
+              .col-sm-10
+                input#search.form-control(type='text', autocomplete='off', data-provide='typeahead', style='width: 475px')  
+                br
+                br
+                span.btn-group
+                  button.btn#addFoodButton.btn-theme(type='button') New Food
+                  button.btn#viewFoodButton.btn-theme(type='button',data-toggle="modal") View
+                  button.btn#editFoodButton.btn-theme(type='button') Edit      
+           #showFood.modal.fade
+            .modal-dialog.vertical-align-center
+             .modal-content
+              .modal-header
+                button.close(aria-hidden='true', data-dismiss='modal', type='button') x
+                h3(data-bind='text:name')
+              .modal-body
+                section.nutrition-facts
+                  h1
+                    | Nutrition Facts
+                  .servints
+                    | Serving Size
+                    span(data-bind='text: servingSize')
+                    | (
+                    span(data-bind='text: servingSizeAlt')
+                    | )
+                  .servings
+                    | Servings Per Container
+                    span(data-bind='text: servingsPerContainer')
+                  hr.thick
+                  div
+                    strong Amount Per Serving
+                  div
+                    strong Calories
+                    span(data-bind='text: calories')
+                    span.right
+                      | Calories from Fat
+                      span(data-bind='text: caloriesFromFat')
+                  hr
+                  h2
+                    span.right % Daily Value*
+                  p
+                    strong Total Fat
+                    span(data-bind='text:fat')
+                    | g
+                    span.right
+                      strong
+                        span
+                      | %
+                  p.subnutrient
+                    | Saturated Fat
+                    span(data-bind='text:saturatedFat')
+                    | g
+                    span.right
+                      strong
+                        span
+                      | %
+                  p.subnutrient
+                    | Trans Fat
+                    span
+                  p
+                    strong Cholesterol
+                    span(data-bind='text:transFat')
+                    | g
+                    span.right
+                      strong
+                        span
+                      | %
+                  p
+                    strong Sodium
+                    span(data-bind='text:sodium')
+                    | g
+                    span.right
+                      strong
+                        span
+                      | %
+                  p
+                    strong Total Carbohydrates
+                    span(data-bind='text:carb')
+                    | g
+                    span.right
+                      strong
+                        span
+                      | %
+                  p.subnutrient
+                    | Dietary Fiber
+                    span(data-bind='text:fiber')
+                    span.right
+                      strong
+                        span
+                      | %
+                  p.subnutrient
+                    | Sugars
+                    span(data-bind='text:sugars')
+                    | g
+                  p
+                    strong Protein
+                    span(data-bind='text:protein')
+                    | g
+                  hr.thick
+                  p
+                    | Vitamin A
+                    span(data-bind='text:vitamina')
+                    | %
+                    span.right
+                      | Vitamin C
+                      span(data-bind='text:vitaminc')
+                      | %
+                  p
+                    | Calcium
+                    span(data-bind='text:calcium')
+                    | %
+                    span.right
+                      | Iron
+                      span(data-bind='text:iron')
+                      | %
+                  footer
+                    p
+                      | * Percent Daily Values is based on a 2,000 calorie diet. Your Daily Values may be higher or lower depending on your calorie needs.
+              .modal-footer
+                button#showFoodClose.btn.btn-primary(data-target='#showFood', data-toggle='modal') Close
+           #editFood.modal.fade
+            .modal-dialog.vertical-align-center
+             .modal-content
+              .modal-header
+                div
+                  | Name:
+                  input.form-control(type='text', data-bind='value:name',required='true')
+              .modal-body
+                section.nutrition-facts(style='float: left; margin:20px')
+                  h1
+                    | Nutrition Facts
+                  .servints
+                    | Serving Size
+                    span.input-append
+                      input.input-mini(type='text', data-bind='value: servingSize')
+                      span.btn-group(data-bind='dropdown: "servingSizeUnits"',required='true')
+                        button.btn.dropdown-toggle(id='serving',data-toggle='dropdown')
+                          span.selection gms
+                          span.caret
+                        ul.dropdown-menu(role="menu")
+                          li
+                            a(href='#') gms
+                          li
+                            a(href='#') oz
+                          li
+                            a(href='#') lbs
+                    | (
+                    span.input-append
+                      input.input-mini(type='text', data-bind='value: servingSizeAlt',required='true')
+                      span.btn-group(data-bind='dropdown: "servingSizeAltUnits"')
+                        button.btn.dropdown-toggle(id='servingAlt',data-toggle='dropdown')
+                          span.selection cup
+                          span.caret
+                        ul.dropdown-menu(aria-labelledby="servingAlt")
+                          li
+                            a(href='#') cup
+                          li
+                            a(href='#') slices
+                          li
+                            a(href='#') pieces  
+                    | )
+                  .servings
+                    | Servings Per Container
+                    input.input-mini(type='text', data-bind='value: servingsPerContainer')
+                  hr.thick
+                  div
+                    strong Amount Per Serving
+                  div
+                    strong Calories
+                    input.input-mini(type='text', data-bind='value: calories')
+                    span.right
+                      | Calories from Fat
+                      input.input-mini(type='text', data-bind='value: caloriesFromFat')
+                  hr
+                  h2
+                    span.right % Daily Value*
+                  .nutrient
+                    strong Total Fat
+                    span.input-append
+                      input.input-mini(type='text', data-bind='value:fat')
+                    | g
+                    span.right
+                      input.input-mini(type='text')
+                      | %
+                  .nutrient.subnutrient
+                    | Saturated Fat
+                    span.input-append
+                      input.input-mini(type='text', data-bind='value:saturatedFat')
+                    | g
+                    span.right
+                      input.input-mini(type='text')
+                      | %
+                  .nutrient.subnutrient
+                    | Trans Fat
+                    span.input-append
+                      input.input-mini(type='text', data-bind='value:transFat')
+                    | g
+                  .nutrient
+                    strong Cholesterol
+                    span.input-append
+                      input.input-mini(type='text', data-bind='value:cholesterol')
+                    | mg
+                    span.right
+                      input.input-mini(type='text')
+                      | %
+                  .nutrient
+                    strong Sodium
+                    span.input-append
+                      input.input-mini(type='text', data-bind='value:sodium')
+                    | mg
+                    span.right
+                      input.input-mini(type='text')
+                      | %
+                  .nutrient
+                    strong Total Carbohydrates
+                    span.input-append
+                      input.input-mini(type='text', data-bind='value:carb')
+                    | g
+                    span.right
+                      input.input-mini(type='text')
+                      | %
+                  .nutrient.subnutrient
+                    | Dietary Fiber
+                    span.input-append
+                      input.input-mini(type='text', data-bind='value:fiber')
+                    | g
+                    span.right
+                      input.input-mini(type='text')
+                      | %
+                  .nutrient.subnutrient
+                    | Sugars
+                    span.input-append
+                      input.input-mini(type='text', data-bind='value:sugars')
+                    | g
+                  .nutrient
+                    strong Protein
+                    span.input-append
+                      input.input-mini(type='text', data-bind='value:protein')
+                    | g
+                  hr.thick
+                  p
+                    | Vitamin A
+                    input.input-mini(type='text', data-bind='value:vitamina')
+                    | %
+                    span.right
+                      | Vitamin C
+                      input.input-mini(type='text', data-bind='value:vitaminc')
+                      | %
+                  p
+                    | Calcium
+                    input.input-mini(type='text', data-bind='value:calcium')
+                    | %
+                    span.right
+                      | Iron
+                      input.input-mini(type='text', data-bind='value:iron')
+                      | %
+                  footer
+                    p
+                      | * Percent Daily Values is based on a 2,000 calorie diet. Your Daily Values may be higher or lower depending on your calorie needs.
+              .modal-footer
+                button#editFoodSave.btn.btn-primary Save
+                button#editFoodClose.btn(data-target='#editFood', data-toggle='modal') Close         
+    // /content-panel
+  // /col-md-12
+

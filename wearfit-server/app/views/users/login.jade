@@ -1,0 +1,31 @@
+extends ../layouts/default
+
+block form
+  #login-page
+   .container
+     form.form-login(action="users/session", method="post", role="form")
+       input(type='hidden', name='_csrf', value=_csrf) 
+       h2.form-login-heading sign in now
+        div= message
+       .login-wrap
+         if message != ""
+          .alert.alert-danger.animated.fadeIn
+          button.close(type='button', data-dismiss='alert') ×
+         input.form-control(type='email', autocomplete="off" placeholder='Email', required='true', name="email", autofocus='')
+         br
+         input.form-control(type='password', name="password", required='true', placeholder='Password')
+         label.checkbox
+           span.pull-right
+             a(data-toggle='modal', href='/forgot-password')  Forgot Password?
+         button.btn.btn-lg.btn-primary.btn-block(type="submit")
+           | SIGN IN
+         hr
+         .login-social-link.centered
+           p or you can sign in via your social network
+           a.button.btn.btn-lg.btn-primary.btn-block(href="/auth/facebook")
+             | Facebook           
+         .registration
+           | Don't have an account yet?
+           br
+           a(data-toggle='modal',href='/signup')
+             | Create an account

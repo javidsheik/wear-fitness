@@ -1,0 +1,35 @@
+extends ../layouts/dashboard
+
+block main
+  header.header.black-bg
+    .sidebar-toggle-box
+      .fa.fa-bars.tooltips(data-placement='right', data-original-title='Toggle Navigation')
+    a.logo(href='/dashboard')
+      b NUMA
+    #top_menu.nav.notify-row
+      // notification start
+      ul.nav.top-menu
+    .top-menu
+      ul.nav.pull-right.top-menu
+        li
+          a.logout(href='/logout') Logout
+  include ../includes/nav
+  mixin nav('/circle')  
+  section#main-content
+    section.wrapper
+     .row.mt
+       .col-md-12
+         .form-panel
+           h4.mb
+             | Create Circle
+           form.form-horizontal.style-form(method='get')
+            .form-group
+              label.col-sm-2.col-sm-2.control-label Name
+              .col-sm-10
+                 input.form-control(type='text')
+            .form-group
+               label.col-sm-2.col-sm-2.control-label Description
+               .col-sm-10
+                  input.form-control(type='text')
+                  span.help-block Describe the event.
+            button.btn.btn-primary(type='submit') Save

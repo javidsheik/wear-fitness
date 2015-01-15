@@ -1,0 +1,46 @@
+<%- include ../include/header %>
+
+  <h3> Hello <%= email %>!</h3>
+
+  <p> <%= share_by %> has shared following event with you.
+  
+  <table border="1">
+    <thead>
+          <th>
+             Name
+          </th>
+          <th>
+             Description
+          </th>
+          <th>
+             Starting Point
+          </th>
+            <th>
+             Ending Point
+          </th>
+           <th>
+             Date
+          </th>
+           <th>
+             Starting Time
+          </th>
+           <th>
+             Ending Time
+          </th>
+    </thead>
+  
+    <thead>
+          <tr>
+             <td> <%=name%></td>
+             <td> <%=description%></td>
+             <td><a href="http://maps.google.com/?q=<%=start_latitude%>,<%=start_longitude%>">Start</a></td>
+             <td><a href="http://maps.google.com/?q=<%=end_latitude%>,<%=end_longitude%>">End</a></td>
+             <td> <%=event_date%></td>
+             <td> <%=start_time%> <%=start_time_unit%></td>
+             <td> <%=end_time%> <%=end_time_unit%></td>
+          </tr>
+    </tbody>
+  <table>  
+    
+ 
+<%- include ../include/footer %>

@@ -1,0 +1,50 @@
+extends ../layouts/dashboard
+
+block main
+  include ../includes/module 
+  mixin module('goal')
+  
+  header.header.black-bg
+    .sidebar-toggle-box
+      .fa.fa-bars.tooltips(data-placement='right', data-original-title='Toggle Navigation')
+    a.logo(href='/dashboard')
+      b NUMA
+    #top_menu.nav.notify-row
+      // notification start
+      ul.nav.top-menu
+    .top-menu
+      ul.nav.pull-right.top-menu
+        li
+          a.logout(href='/logout') Logout
+  include ../includes/nav
+  mixin nav('/goal')  
+  section#main-content
+    section.wrapper
+     .row.mt
+       .col-md-12
+         .form-panel
+           h4.mb
+             | My Goals
+           form.form-horizontal
+            .form-group(name='daily_calories')
+               label.col-sm-2.col-sm-2.control-label Daily Calories
+               .col-sm-10
+                   input.form-control(type='text',data-bind='value: daily_calories')
+                   span.help-block Daily Calories to start with.
+            .form-group(name='daily_steps')
+               label.col-sm-2.col-sm-2.control-label Daily Steps
+               .col-sm-10
+                   input.form-control(type='text',data-bind='value: daily_steps')
+                   span.help-block Daily Steps to start with.
+            .form-group(name='daily_distance')
+                label.col-sm-2.col-sm-2.control-label Daily Distance
+                .col-sm-10
+                   input.form-control(type='text',data-bind='value: daily_distance')
+                   span.help-block Daily Distance to start with.
+            .form-group(name='daily_percent')
+                label.col-sm-2.col-sm-2.control-label Percent Increment(%)
+                .col-sm-10
+                   input.form-control(type='text',data-bind='value: daily_percent')
+                   span.help-block Percentage to increment in calories
+                  
+            button#saveGoal.btn.btn-primary(type='button',data-bind='click: save') Save

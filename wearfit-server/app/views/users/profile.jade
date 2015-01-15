@@ -1,0 +1,71 @@
+extends ../layouts/dashboard
+  
+block main
+  header.header.black-bg
+    .sidebar-toggle-box
+      .fa.fa-bars.tooltips(data-placement='right', data-original-title='Toggle Navigation')
+    a.logo(href='/dashboard')
+      b NUMA
+    #top_menu.nav.notify-row
+      // notification start
+      ul.nav.top-menu
+    .top-menu
+      ul.nav.pull-right.top-menu
+        li
+          a.logout(href='/logout') Logout
+  include ../includes/nav
+  mixin nav('/dashboard')  
+  section#main-content
+    section.wrapper
+     .row.mt
+        .col-lg-12
+          .form-panel
+            h4.mb
+              i.fa.fa-angle-right
+              | Profile
+            form.form-horizontal.style-form(method='get')
+              .form-group
+                label.col-sm-2.col-sm-2.control-label First Name
+                .col-sm-10
+                  input.form-control(type='text',readonly="true",name="first_name",value="#{User.first_name}")
+              .form-group
+                label.col-sm-2.col-sm-2.control-label Last Name
+                .col-sm-10
+                  input.form-control(type='text',readonly="true",name="last_name",value="#{User.last_name}")
+              .form-group
+                label.col-sm-2.col-sm-2.control-label Date Of Birth
+                .col-sm-10
+                  input.form-control(type='text',readonly="true",name="date_of_birth",value="#{User.date_of_birth}")
+              .form-group
+                label.col-sm-2.col-sm-2.control-label Height
+                .col-sm-10
+                  input.form-control(type='text',readonly="true",name="height",value="#{User.height}")
+              .form-group
+                label.col-sm-2.col-sm-2.control-label Weight
+                .col-sm-10
+                  input.form-control(type='text',readonly="true",name="weight",value="#{User.weight}")
+              .form-group
+                label.col-sm-2.col-sm-2.control-label Gender
+                .col-sm-10
+                  input.form-control(type='text',readonly="true",name="gender",value="#{User.gender}")
+               .form-group
+                label.col-sm-2.col-sm-2.control-label Address
+                .col-sm-10
+                  input.form-control(type='text',readonly="true",name="address",value="#{User.address}")
+               .form-group
+                label.col-sm-2.col-sm-2.control-label State
+                .col-sm-10
+                  input.form-control(type='text',readonly="true",name="state",value="#{User.state}")   
+               .form-group
+                label.col-sm-2.col-sm-2.control-label Country
+                .col-sm-10
+                  input.form-control(type='text',readonly="true",name="country",value="#{User.country}")   
+               .form-group
+                label.col-sm-2.col-sm-2.control-label Zip
+                .col-sm-10
+                  input.form-control(type='text',readonly="true",name="zip",value="#{User.zip}")   
+               .form-group
+                label.col-sm-2.col-sm-2.control-label Mobile
+                .col-sm-10
+                  input.form-control(type='text',readonly="true",name="Mobile",value="#{User.mobile}")                 
+           

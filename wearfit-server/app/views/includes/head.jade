@@ -1,0 +1,39 @@
+head(prefix="og: http://ogp.me/ns# numaforce: http://www.numaforce.com")
+  meta(charset="utf-8")
+  meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+  meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+  meta(http-equiv="Content-Language", content="en-us")
+
+  title= pkg.name + ' - ' + title
+  meta(http-equiv="Content-type", content="text/html;charset=UTF-8")
+  meta(name="keywords", content=pkg.keywords.join(","))
+  meta(name="description", content=pkg.description)
+
+  link(href="/favicon.png", rel="shortcut icon", type="image/x-icon")
+  // Opengraph tags
+  //- meta(property="fb:app_id", content="")
+  //- meta(property="fb:admins", content="")
+  meta(property="og:title", content=pkg.name + ' - ' + title)
+  meta(property="og:description", content=pkg.description)
+  meta(property="og:url", content="")
+  meta(property="og:image", content="")
+  meta(property="og:site_name", content="#{pkg.name}")
+  meta(name="viewport",content="width=device-width, initial-scale=1")
+
+
+  script(src='/js/libs/modernizr.custom.js')
+  
+  if NODE_ENV == 'development'
+    link( rel="stylesheet" href="/css/bootstrap.css" type="text/css")
+    link( rel="stylesheet" href="/css/apps.css" type="text/css")
+    link( rel="stylesheet" href="/css/style-responsive.css" type="text/css")
+    link( rel="stylesheet" href="/css/nutrition.css" type="text/css")
+    link( rel="stylesheet" href="/css/knockout-datatable.css" type="text/css")
+  if NODE_ENV == 'production'
+    link( rel="stylesheet" href="/assets/css/apps.min.css" type="text/css")
+
+  //[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+	

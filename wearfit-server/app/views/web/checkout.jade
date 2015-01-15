@@ -1,0 +1,248 @@
+extends ../layouts/web
+  
+block main
+  section#main-content
+    .header
+      link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800', rel='stylesheet', type='text/css')
+      link(rel='stylesheet', href='/css/web/styles/web.css')
+      script(src='js/web/scripts/easyResponsiveTabs.js')
+      .top-header
+        .wrap
+          .top-header-left
+            ul
+              // -start-cart-bag--
+              li
+                a.info(href='#')
+                  span  
+          .top-header-center
+            .top-header-center-alert-left
+              h3 FREE DELIVERY
+            .top-header-center-alert-right
+              .vticker
+                ul
+                  li
+                    | Applies to all orders. 
+                    label Returns are subject to conditions.
+            .clear  
+          .top-header-right
+          .clear  
+      // --start-mid-head--
+      .mid-header
+      // --//End-mid-head--
+      // --start-bottom-header--
+      // -//End-header--
+      // - start-content--
+      .content.details-page
+        // -start-product-details-
+        .product-details
+          .wrap
+            ul.product-head
+              li
+                a(href='/') Home
+              .clear  
+        .clear  
+      .clear  
+    // --product-rewies--
+    .product-reviwes
+      .wrap
+        // vertical Tabs-script
+        // -responsive-tabs--
+       
+        script(type='text/javascript').
+          $(document).ready(function () {
+          $('#horizontalTab').easyResponsiveTabs({
+          type: 'default', //Types: default, vertical, accordion
+          width: 'auto', //auto or any width like 600px
+          fit: true,   // 100% fit in a container
+          closed: 'accordion', // Start closed if in accordion view
+          activate: function(event) { // Callback function if tab is switched
+          var $tab = $(this);
+          var $info = $('#tabInfo');
+          var $name = $('span', $info);
+          $name.text($tab.text());
+          $info.show();
+          }
+          });
+          $('#verticalTab').easyResponsiveTabs({
+          type: 'vertical',
+          width: 'auto',
+          fit: true
+          });
+          });
+        // -//responsive-tabs--
+        // //vertical Tabs-script
+        // vertical Tabs
+        #verticalTab
+          ul.resp-tabs-list
+            li Order Summary
+            li Shipping Details
+          .resp-tabs-container.vertical-tabs
+            div
+              h3  Details
+              .product-info
+                .product-info-cust 	Numa Sprint - #{cart.order_color} X  #{cart.order_quantity}
+                .product-info-price #{cart.order_price}
+                .clear  
+              .product-info
+                .clear  
+                .product-info-cust 	Shipping
+                .product-info-price 0
+                .product-info-cust 	Tax
+                .product-info-price 0
+                .clear  
+              .product-info
+                .clear  
+                .product-info-cust 	Total(INR)
+                .product-info-price #{cart.order_price}
+                .clear  
+            div
+              h3 Shipping Details
+              form(action="/checkout" method="POST")
+                input(type='hidden', name='order_price', value='#{cart.order_price}')
+                input(type='hidden', name='order_quantity', value='#{cart.order_quantity}')
+                input(type='hidden', name='order_color', value='#{cart.order_color}')
+                input(type='hidden', name='_csrf', value=_csrf)
+                span Email Address*
+                input(name='email', required='true',type='text')
+                span First Name*
+                input(name='first_name', required='true',type='text')
+                span Last Name 
+                input(name='last_name', type='text')
+                span Address*
+                input(name='address', required='true',type='text')
+                span City*
+                ul(class='prosuct-city')
+                    select#city(name='city',required='true')
+                     option(label='Select City', value='', selected='selected') Select City
+                     option(label='Agartala', value='Agartala') Agartala
+                     option(label='Agra', value='Agra') Agra
+                     option(label='Ahmedabad', value='Ahmedabad') Ahmedabad
+                     option(label='Aizwal', value='Aizwal') Aizwal
+                     option(label='Aligarh', value='Aligarh') Aligarh
+                     option(label='Allahabad', value='Allahabad') Allahabad
+                     option(label='Amritsar', value='Amritsar') Amritsar
+                     option(label='Aurangabad', value='Aurangabad') Aurangabad
+                     option(label='Baroda', value='Baroda') Baroda
+                     option(label='Bengaluru', value='Bengaluru') Bengaluru
+                     option(label='Bhopal', value='Bhopal') Bhopal
+                     option(label='Bhubaneshwar', value='Bhubaneshwar') Bhubaneshwar
+                     option(label='Bokaro', value='Bokaro') Bokaro
+                     option(label='Chandigarh', value='Chandigarh') Chandigarh
+                     option(label='Chennai', value='Chennai') Chennai
+                     option(label='Cochin', value='Cochin') Cochin
+                     option(label='Coimbatore', value='Coimbatore') Coimbatore
+                     option(label='Cuttack', value='Cuttack') Cuttack
+                     option(label='Dehradun', value='Dehradun') Dehradun
+                     option(label='Delhi', value='Delhi') Delhi
+                     option(label='Dimapur', value='Dimapur') Dimapur
+                     option(label='Durgapur', value='Durgapur') Durgapur
+                     option(label='Faridabad', value='Faridabad') Faridabad
+                     option(label='Gandhinagar', value='Gandhinagar') Gandhinagar
+                     option(label='Ghaziabad', value='Ghaziabad') Ghaziabad
+                     option(label='Goa', value='Goa') Goa
+                     option(label='Gurgaon', value='Gurgaon') Gurgaon
+                     option(label='Guwahati', value='Guwahati') Guwahati
+                     option(label='Gwalior', value='Gwalior') Gwalior
+                     option(label='Hyderabad', value='Hyderabad') Hyderabad
+                     option(label='Imphal', value='Imphal') Imphal
+                     option(label='Indore', value='Indore') Indore
+                     option(label='Jabalpur', value='Jabalpur') Jabalpur
+                     option(label='Jaipur', value='Jaipur') Jaipur
+                     option(label='Jammu', value='Jammu') Jammu
+                     option(label='Jamnagar', value='Jamnagar') Jamnagar
+                     option(label='Jamshedpur', value='Jamshedpur') Jamshedpur
+                     option(label='Jodhpur', value='Jodhpur') Jodhpur
+                     option(label='Jullundhar', value='Jullundhar') Jullundhar
+                     option(label='Kanpur', value='Kanpur') Kanpur
+                     option(label='Kolhapur', value='Kolhapur') Kolhapur
+                     option(label='Kolkata', value='Kolkata') Kolkata
+                     option(label='Lucknow', value='Lucknow') Lucknow
+                     option(label='Ludhiana', value='Ludhiana') Ludhiana
+                     option(label='Madurai', value='Madurai') Madurai
+                     option(label='Mangalore', value='Mangalore') Mangalore
+                     option(label='Margaon', value='Margaon') Margaon
+                     option(label='Mumbai', value='Mumbai') Mumbai
+                     option(label='Mysore', value='Mysore') Mysore
+                     option(label='Nagpur', value='Nagpur') Nagpur
+                     option(label='Nasik', value='Nasik') Nasik
+                     option(label='NOIDA', value='NOIDA') NOIDA
+                     option(label='Patna', value='Patna') Patna
+                     option(label='Panjim', value='Panjim') Panjim
+                     option(label='Pondicherry', value='Pondicherry') Pondicherry
+                     option(label='Pune', value='Pune') Pune
+                     option(label='Raipur', value='Raipur') Raipur
+                     option(label='Ranchi', value='Ranchi') Ranchi
+                     option(label='Rourkela', value='Rourkela') Rourkela
+                     option(label='Rajkot', value='Rajkot') Rajkot
+                     option(label='Salem', value='Salem') Salem
+                     option(label='Secunderabad', value='Secunderabad') Secunderabad
+                     option(label='Shillong', value='Shillong') Shillong
+                     option(label='Siliguri', value='Siliguri') Siliguri
+                     option(label='Srinagar', value='Srinagar') Srinagar
+                     option(label='Surat', value='Surat') Surat
+                     option(label='Thane', value='Thane') Thane
+                     option(label='Thiruvananthapuram', value='Thiruvananthapuram') Thiruvananthapuram
+                     option(label='Tiruchirapalli', value='Tiruchirapalli') Tiruchirapalli
+                     option(label='Udaipur', value='Udaipur') Udaipur
+                     option(label='Varanasi', value='Varanasi') Varanasi
+                     option(label='Vellore', value='Vellore') Vellore
+                     option(label='Vijaywada', value='Vijaywada') Vijaywada
+                     option(label='Vishakapatnam', value='Vishakapatnam') Vishakapatnam
+                     option(label='Other', value='Other') Other
+                span City Other
+                input(name='other_city', type='text') 
+                span State*
+                ul(class='prosuct-city',required='true')
+                    select#state(name='state', autocomplete='shipping region')
+                      option Select State
+                      option(value='Andaman and Nicobar') Andaman and Nicobar
+                      option(value='Andhra Pradesh') Andhra Pradesh
+                      option(value='Arunachal Pradesh') Arunachal Pradesh
+                      option(value='Assam') Assam
+                      option(value='Bihar') Bihar
+                      option(value='Chandigarh') Chandigarh
+                      option(value='Chattisgarh') Chattisgarh
+                      option(value='Dadra and Nagar Haveli') Dadra and Nagar Haveli
+                      option(value='Daman and Diu') Daman and Diu
+                      option(value='Delhi') Delhi
+                      option(value='Goa') Goa
+                      option(value='Gujarat') Gujarat
+                      option(value='Haryana') Haryana
+                      option(value='Himachal Pradesh') Himachal Pradesh
+                      option(value='Jammu and Kashmir') Jammu and Kashmir
+                      option(value='Jharkhand') Jharkhand
+                      option(value='Karnataka') Karnataka
+                      option(value='Kerala') Kerala
+                      option(value='Lakshadweep') Lakshadweep
+                      option(value='Madhya Pradesh') Madhya Pradesh
+                      option(value='Maharashtra') Maharashtra
+                      option(value='Manipur') Manipur
+                      option(value='Meghalaya') Meghalaya
+                      option(value='Mizoram') Mizoram
+                      option(value='Nagaland') Nagaland
+                      option(value='Orissa') Orissa
+                      option(value='Puducherry') Puducherry
+                      option(value='Punjab') Punjab
+                      option(value='Rajasthan') Rajasthan
+                      option(value='Sikkim') Sikkim
+                      option(value='Tamil Nadu') Tamil Nadu
+                      option(value='Telangana') Telangana
+                      option(value='Tripura') Tripura
+                      option(value='Uttar Pradesh') Uttar Pradesh
+                      option(value='Uttarakhand') Uttarakhand
+                      option(value='West Bengal') West Bengal
+                span Country*
+                input(name='country', readonly='', value='India', type='text')
+                span Zip*
+                input(name='zip', type='text',required='true')
+                span Phone*
+                input(name='mobile', type='text',required='true')
+                br
+                br
+                .clear  
+                input(type='submit', value='CONTINUE CHECKOUT')
+                span All fields (*) are required.
+                span Billing Details same as shipping
+        .clear  
+    .clear                  
+           

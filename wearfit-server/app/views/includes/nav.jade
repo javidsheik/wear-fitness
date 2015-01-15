@@ -1,0 +1,18 @@
+mixin nav(name)
+ aside
+   #sidebar.nav-collapse(tabindex='5000', style='overflow: hidden;')
+     ul#nav-accordion.sidebar-menu
+       p.centered
+         a(href='/users/profile/#{User._id} ')
+           img.img-circle(width='60', src='/img/account.png')
+       h5.centered  #{User.first_name} #{User.last_name}        
+       each nav in build_menu()
+         li.mt
+           if(name == nav.link )
+             a.active(href='#{nav.link}')
+              !=icon(nav.icon)
+              span #{nav.title}
+           else
+             a(href='#{nav.link}')		   
+              !=icon(nav.icon)
+              span #{nav.title}

@@ -1,0 +1,66 @@
+extends ../layouts/web
+  
+block main
+  section#main-content
+    .header
+      link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800', rel='stylesheet', type='text/css')
+      link(rel='stylesheet', href='/css/web/styles/web.css')
+      script(src='js/web/scripts/easyResponsiveTabs.js')
+      .top-header
+        .wrap
+          .top-header-left
+            ul
+              // -start-cart-bag--
+              li
+                a.info(href='#')
+                  span  
+          .top-header-center
+            .top-header-center-alert-left
+              h3 FREE SHIPPING
+            .top-header-center-alert-right
+              .vticker
+                ul
+                  li
+                    | Applies to all orders. 
+                    label Returns are subject to conditions.
+            .clear  
+          .top-header-right
+          .clear  
+      // --start-mid-head--
+      .mid-header
+        .content.details-page
+        // -start-product-details-
+        .product-details
+          .wrap
+            ul.product-head
+              li
+                a(href='/') Home
+              .clear  
+                p Thank you for placing order with us. Payment #{message.status} details follows
+              .clear
+            .details-left-info
+              .details-right-head
+                h3
+                 table(border="0", cellspacing = "10", cellpadding="10")
+                  tr
+                   td Order ID 
+                   td : #{message.order_id}
+                  tr
+                   td Email 
+                   td : #{message.email}
+                  tr
+                   td Payment Status 
+                   td : #{message.status}
+                  tr 
+                   td Payment ID
+                   td : #{message.payment_id}
+                  tr
+                   td Amount Debited 
+                   td : #{message.amount_debit}
+                  tr
+                   td Bank Reference No
+                   td : #{message.bank_ref_num}
+          
+            
+        .clear  
+    .clear                  

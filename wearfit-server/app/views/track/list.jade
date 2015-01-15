@@ -1,0 +1,68 @@
+extends ../layouts/dashboard
+  
+block main
+  include ../includes/module 
+  mixin module('track')
+
+  header.header.black-bg
+    .sidebar-toggle-box
+      .fa.fa-bars.tooltips(data-placement='right', data-original-title='Toggle Navigation')
+    a.logo(href='/dashboard')
+      b NUMA
+    #top_menu.nav.notify-row
+      // notification start
+      ul.nav.top-menu
+    .top-menu
+      ul.nav.pull-right.top-menu
+        li
+          a.logout(href='/logout') Logout
+  include ../includes/nav
+  mixin nav('/track')  
+  section#main-content
+    section.wrapper
+     .row.mt
+       .col-md-12
+         .content-panel
+           h4
+            | My Track list
+            br
+            br            
+           hr
+           div
+            button#prevDate.btn
+             icon(class="fa fa-arrow-circle-left")
+            |             
+            button#date.btn
+            |             
+            button#nextDate.btn
+             i(class="fa fa-arrow-circle-right ")
+           table#activityList.table.table-striped.table-advance.table-hover
+            thead
+              tr
+                th Track Type
+                th Activity Type
+                th Activity Date                
+                th Calories 
+                th Food
+                th Consumed Unit
+                th Consumed Value
+                th Consumed Time
+            tbody(data-bind="foreach: activities")
+              tr#trTemplate
+                  td
+                    span(data-bind='text: $data.activity[0].track_type')            
+                  td
+                    span(data-bind='text: $data.activity[0].activity_type')
+                  td
+                    span(data-bind='text: $data.activity[0].activity_date')
+                  td
+                    span(data-bind='text: $data.activity[0].calories_burnt')
+                  td
+                    span(data-bind='text: $data.activity[0].consumed_value')
+                  td
+                    span(data-bind='text: $data.activity[0].consumed_value')
+                  td
+                    span(data-bind='text: $data.activity[0].consumed_time_value  $data.activity[0].consumed_time_unit')
+            
+    // /content-panel
+    // /col-md-12
